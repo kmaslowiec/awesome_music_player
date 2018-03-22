@@ -1,54 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:orientation="vertical"
     tools:context="com.example.android.awesomemusicplayer.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
 
-        >
     <TextView
         android:id="@+id/button_songs"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/button_heiht"
+        style="@style/CategoryStyle"
         android:text="@string/songs"
         android:background="@color/songs_button"
-        android:gravity="center"
-        android:textSize="@dimen/button_text_size"
-        android:textAllCaps="true"
         android:textColor="@color/font_color"
-        android:textStyle="bold"
+
          />
 
-    <TextView
-        android:id="@+id/button_artists"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/button_heiht"
-        android:text="@string/artists"
-        android:background="@color/artists_button"
-        android:gravity="center"
-        android:textSize="@dimen/button_text_size"
-        android:textAllCaps="true"
-        android:textColor="@color/font_color"
-        android:textStyle="bold"
-        />
+        <TextView
+            android:id="@+id/button_artists"
+            style="@style/CategoryStyle"
+            android:background="@color/artists_button"
+            android:text="@string/artists"
+            android:textColor="@color/font_color" />
 
     <TextView
         android:id="@+id/button_genre"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/button_heiht"
+        style="@style/CategoryStyle"
         android:text="@string/genre"
         android:background="@color/genre_button"
-        android:gravity="center"
-        android:textSize="@dimen/button_text_size"
-        android:textAllCaps="true"
         android:textColor="@color/font_color"
-        android:textStyle="bold"
+
         />
-    </LinearLayout>
-</ScrollView>
+
+</LinearLayout>
