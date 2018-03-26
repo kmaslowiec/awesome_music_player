@@ -11,5 +11,6 @@
     <color name="genre_button">#29B6F6</color>
 
     <color name="font_color">#fff</color>
+    <color name="font_color_list">#fff</color>
 
 </resources>
