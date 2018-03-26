@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context="com.example.android.awesomemusicplayer.PlayerActivity">
+
+
+    <!-- FRAME FOR THE WHOLE PLAYER -->
+
+
+
+    <LinearLayout
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:background="@color/player_background"
+
+        >
+
+        <!-- FRAME FOR TITLE, ARTIST AND GENRE TEXT VIEWS -->
+
+        <LinearLayout
+            android:id="@+id/text_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/player_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/PlayerFont"
+                tools:text="@string/songs"
+                />
+
+            <TextView
+                android:id="@+id/player_artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/PlayerFont"
+                tools:text="@string/artists"
+                />
+
+            <TextView
+                android:id="@+id/player_genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/PlayerFont"
+                tools:text="@string/genre"
+                />
+
+
+        </LinearLayout>
+
+        <!-- FRAME FOR BUTTONS PLAY, STOP, NEXT, PREVIOUS -->
+
+        <LinearLayout
+            android:id="@+id/buttons_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/padding"
+
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/stop_low"
+                android:paddingRight="@dimen/padding"
+
+
+
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/play_low"
+
+
+
+                />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <!-- END OF PLAYER FRAME -->
+
+</RelativeLayout>

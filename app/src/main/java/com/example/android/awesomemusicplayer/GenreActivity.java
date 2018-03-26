@@ -23,6 +23,10 @@ public class GenreActivity extends AppCompatActivity {
 
         Collections.sort(songsArrayList, Songs.genreCompare);
 
+        /**
+         * The last parameter sets the layout that is visible under the activity
+         */
+
         SongsAdapter adapter = new SongsAdapter(this, songsArrayList, R.layout.list_genre);
 
         ListView listView = (ListView)  findViewById(R.id.list_songs);

@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--light blue -->
+
+    <!--500 -->
     <color name="colorPrimary">#03A9F4</color>
+    <!--500 -->
     <color name="colorPrimaryDark">#03A9F4</color>
+    <!--900 -->
     <color name="colorAccent">#01579B</color>
 
+    <!--700 -->
     <color name="background">#0288D1</color>
+    <color name="player_background">#039BE5</color>
 
+    <!--600 -->
     <color name="songs_button">#039BE5</color>
+    <!--500 -->
     <color name="artists_button">#03A9F4</color>
+    <!--400 -->
     <color name="genre_button">#29B6F6</color>
 
     <color name="font_color">#fff</color>
