@@ -13,7 +13,7 @@ public class SongsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_songs);
+        setContentView(R.layout.activity_list_songs);
         MainActivity app = new MainActivity();
 
         Songs[] array = app.songsArray;
@@ -35,7 +35,7 @@ public class SongsActivity extends AppCompatActivity {
 
         ArrayList<Songs> songsArrayList = new ArrayList<>(Arrays.asList(array));
 
-        Collections.sort(songsArrayList, Songs.genreCompare);
+        Collections.sort(songsArrayList, Songs.songNameCompare);
 
         SongsAdapter adapter = new SongsAdapter(this, songsArrayList);
 

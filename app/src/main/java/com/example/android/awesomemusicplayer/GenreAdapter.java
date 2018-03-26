@@ -14,9 +14,9 @@ import java.util.ArrayList;
  * At this moment I have no idea what it does :)
  */
 
-public class SongsAdapter extends ArrayAdapter<Songs> {
+public class GenreAdapter extends ArrayAdapter<Songs> {
 
-    private static final String LOG_TAG = SongsAdapter.class.getSimpleName();
+    private static final String LOG_TAG = GenreAdapter.class.getSimpleName();
 
 
     /**
@@ -28,7 +28,7 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
      * @param songs A List of AndroidFlavor objects to display in a list
      */
 
-    public SongsAdapter(@NonNull Context context, @NonNull ArrayList<Songs> songs) {
+    public GenreAdapter(@NonNull Context context, @NonNull ArrayList<Songs> songs) {
         super(context, 0, songs);
     }
 
@@ -43,23 +43,24 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
         View listItemView = convertView;
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.list_title, parent, false);
+                    R.layout.list_genre, parent, false);
         }
 
         // Get the {@link Songs} object located at this position in the list
         Songs songs = getItem(position);
 
-        // Find the TextView in the list_title.xmll layout with the ID version_name
-        TextView songTextView = listItemView.findViewById(R.id.song_word);
-        // set this text on the name TextView
-        songTextView.setText(songs.getSongName());
-
-        // Find the TextView in the list_title.xmll layout with the ID version_number
+        // Find the TextView in the list_titlee.xml layout with the ID version_number
         TextView artistTextView = listItemView.findViewById(R.id.artist_word);
         // set this text on the number TextView
         artistTextView.setText(songs.getArtistName());
 
-        // Find the TextView in the list_title.xmll layout with the ID version_number
+        // Find the TextView in the list_titlee.xml layout with the ID version_name
+        TextView songTextView = listItemView.findViewById(R.id.song_word);
+        // set this text on the name TextView
+        songTextView.setText(songs.getSongName());
+
+
+        // Find the TextView in the list_titlee.xml layout with the ID version_number
         TextView genreTextView = listItemView.findViewById(R.id.genre_word);
         // set this text on the number TextView
         genreTextView.setText(songs.getGenre());

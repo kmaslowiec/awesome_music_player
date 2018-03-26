@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Awesome Music Player</string>
 
-    <string name="songs">songs</string>
+    <string name="songs">titles</string>
     <string name="artists">artists</string>
     <string name="genre">genre</string>
 
