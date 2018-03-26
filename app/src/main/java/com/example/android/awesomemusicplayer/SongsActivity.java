@@ -6,6 +6,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 public class SongsActivity extends AppCompatActivity {
 
@@ -13,8 +15,11 @@ public class SongsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_songs);
+        MainActivity app = new MainActivity();
 
-        Songs[] songsArray = {
+        Songs[] array = app.songsArray;
+
+        /*Songs[] songsArray = {
                 new Songs("Thriller", "Micheal Jackson", "Pop"),
                 new Songs("bloody roots", "Sepultura", "Heavy Metal"),
                 new Songs("These Are The Days Of Our Lives", "Queen", "Rock"),
@@ -25,9 +30,13 @@ public class SongsActivity extends AppCompatActivity {
                 new Songs("Hurt", "Johnny Cash", "Country"),
                 new Songs("All along the watchtower", "Bob Dylan", "Rock"),
                 new Songs("More Human Than Human", "White Zombie", "Trash Metal")
-        };
+        };*/
 
-        ArrayList<Songs> songsArrayList = new ArrayList<>(Arrays.asList(songsArray));
+
+
+        ArrayList<Songs> songsArrayList = new ArrayList<>(Arrays.asList(array));
+
+        Collections.sort(songsArrayList, Songs.songNameCompare);
 
         SongsAdapter adapter = new SongsAdapter(this, songsArrayList);
 
