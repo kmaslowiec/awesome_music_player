@@ -23,7 +23,7 @@ public class GenreActivity extends AppCompatActivity {
 
         Collections.sort(songsArrayList, Songs.genreCompare);
 
-        GenreAdapter adapter = new GenreAdapter(this, songsArrayList);
+        SongsAdapter adapter = new SongsAdapter(this, songsArrayList, R.layout.list_genre);
 
         ListView listView = (ListView)  findViewById(R.id.list_songs);
 

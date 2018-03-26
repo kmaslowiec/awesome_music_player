@@ -14,7 +14,6 @@ public class ArtistsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_songs);
-
         MainActivity app = new MainActivity();
 
         Songs[] array = app.songsArray;
@@ -23,7 +22,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
         Collections.sort(songsArrayList, Songs.artistNameCompare);
 
-        ArtistsAdapter adapter = new ArtistsAdapter(this, songsArrayList);
+        SongsAdapter adapter = new SongsAdapter(this, songsArrayList, R.layout.list_artists);
 
         ListView listView = (ListView)  findViewById(R.id.list_songs);
 

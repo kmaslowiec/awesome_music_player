@@ -18,6 +18,13 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
 
     private static final String LOG_TAG = SongsAdapter.class.getSimpleName();
 
+    private int listNum;
+
+    public int getListNum() {
+        return listNum;
+    }
+
+
 
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
@@ -28,8 +35,12 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
      * @param songs A List of AndroidFlavor objects to display in a list
      */
 
-    public SongsAdapter(@NonNull Context context, @NonNull ArrayList<Songs> songs) {
+    public SongsAdapter(@NonNull Context context, @NonNull ArrayList<Songs> songs, int listNum) {
+
+
         super(context, 0, songs);
+        this.listNum = listNum;
+
     }
 
 
@@ -43,7 +54,7 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
         View listItemView = convertView;
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.list_title, parent, false);
+                    getListNum(), parent, false);
         }
 
         // Get the {@link Songs} object located at this position in the list
