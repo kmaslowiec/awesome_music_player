@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     Songs[] songsArray = {
             new Songs("Thriller", "Micheal Jackson", "Pop"),
-            new Songs("bloody roots", "Sepultura", "Heavy Metal"),
+            new Songs("Bloody roots", "Sepultura", "Heavy Metal"),
             new Songs("These Are The Days Of Our Lives", "Queen", "Rock"),
             new Songs("Nie pytaj mnie", "Tomek Lipiński", "Rock"),
             new Songs("Supergirl", "Anna Naklab feat. Alle Farben & Younotus", "Pop"),

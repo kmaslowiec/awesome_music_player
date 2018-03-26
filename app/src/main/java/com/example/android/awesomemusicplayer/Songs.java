@@ -1,6 +1,6 @@
 package com.example.android.awesomemusicplayer;
 
-import android.support.annotation.NonNull;
+
 
 import java.util.Comparator;
 
@@ -43,6 +43,44 @@ public class Songs {
 
             return songName1.compareTo(songName2);
         }
+    };
+
+    public static Comparator<Songs> artistNameCompare = new Comparator<Songs>() {
+        @Override
+        public int compare(Songs songs1, Songs songs2) {
+            String songName1 = songs1.getSongName().toUpperCase();
+            String songName2 = songs2.getSongName().toUpperCase();
+            String artistName1 = songs1.getArtistName().toUpperCase();
+            String artistName2 = songs2.getArtistName().toUpperCase();
+
+            if(artistName1.equals(artistName2)){
+                return songName1.compareTo(songName2);
+            }
+
+            return artistName1.compareTo(artistName2);
+
+
+        }
+
+    };
+
+    public static Comparator<Songs> genreCompare = new Comparator<Songs>() {
+        @Override
+        public int compare(Songs songs1, Songs songs2) {
+            String songName1 = songs1.getSongName().toUpperCase();
+            String songName2 = songs2.getSongName().toUpperCase();
+            String genre1 = songs1.getGenre().toUpperCase();
+            String genre2 = songs2.getGenre().toUpperCase();
+
+            if(genre1.equals(genre2)){
+                return songName1.compareTo(songName2);
+            }
+
+            return genre1.compareTo(genre2);
+
+
+        }
+
     };
 
 }

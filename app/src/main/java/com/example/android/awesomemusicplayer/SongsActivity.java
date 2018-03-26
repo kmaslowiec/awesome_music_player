@@ -6,7 +6,6 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 
 public class SongsActivity extends AppCompatActivity {
@@ -36,7 +35,7 @@ public class SongsActivity extends AppCompatActivity {
 
         ArrayList<Songs> songsArrayList = new ArrayList<>(Arrays.asList(array));
 
-        Collections.sort(songsArrayList, Songs.songNameCompare);
+        Collections.sort(songsArrayList, Songs.genreCompare);
 
         SongsAdapter adapter = new SongsAdapter(this, songsArrayList);
 
