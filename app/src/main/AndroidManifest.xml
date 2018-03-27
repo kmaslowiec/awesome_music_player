@@ -27,7 +27,9 @@
         <activity
             android:name=".GenreActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".PlayerActivity"></activity>
+        <activity android:name=".PlayerActivity"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

@@ -1,7 +1,9 @@
 package com.example.android.awesomemusicplayer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +54,7 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
     public View getView(int position, View convertView, ViewGroup parent) {
 // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
+
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     getListNum(), parent, false);
@@ -63,7 +66,12 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
         // Find the TextView in the list_title.xmll layout with the ID version_name
         TextView songTextView = listItemView.findViewById(R.id.song_word);
         // set this text on the name TextView
+
+
+
         songTextView.setText(songs.getSongName());
+
+
 
         // Find the TextView in the list_title.xmll layout with the ID version_number
         TextView artistTextView = listItemView.findViewById(R.id.artist_word);
