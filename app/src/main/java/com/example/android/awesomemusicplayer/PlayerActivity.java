@@ -11,6 +11,24 @@ public class PlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
 
+        Bundle title = getIntent().getExtras();
+
+        if(title!=null){
+            TextView titleTextView = findViewById(R.id.player_title);
+            titleTextView.setText(title.getString("title"));
+        }
+
+        if(title!=null){
+            TextView artistTextView = findViewById(R.id.player_artist);
+            artistTextView.setText(title.getString("artist"));
+        }
+
+        if(title!=null){
+            TextView genreTextView = findViewById(R.id.player_genre);
+            genreTextView.setText(title.getString("genre"));
+        }
+
+
 
     }
 }

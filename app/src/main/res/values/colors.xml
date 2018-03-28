@@ -12,7 +12,8 @@
 
     <!--700 -->
     <color name="background">#0288D1</color>
-    <color name="player_background">#039BE5</color>
+    <!--500 -->
+    <color name="player_background">#03A9F4</color>
 
     <!--600 -->
     <color name="songs_button">#039BE5</color>
