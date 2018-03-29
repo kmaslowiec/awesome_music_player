@@ -18,19 +18,19 @@ public class GenreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_songs);
 
-        MainActivity app = new MainActivity();
+        SongListForAll app = new SongListForAll();
 
-        Songs[] array = app.songsArray;
+        ArrayList<Songs> genreArrayList = app.getArraySongs();
 
-        ArrayList<Songs> songsArrayList = new ArrayList<>(Arrays.asList(array));
+        Collections.sort(genreArrayList, Songs.artistNameCompare);
 
-        Collections.sort(songsArrayList, Songs.genreCompare);
+        Collections.sort(genreArrayList, Songs.genreCompare);
 
         /**
          * The last parameter sets the layout that is visible under the activity
          */
 
-        SongsAdapter adapter = new SongsAdapter(this, songsArrayList, R.layout.list_genre);
+        SongsAdapter adapter = new SongsAdapter(this, genreArrayList, R.layout.list_genre);
 
         ListView listView = findViewById(R.id.list_songs);
 

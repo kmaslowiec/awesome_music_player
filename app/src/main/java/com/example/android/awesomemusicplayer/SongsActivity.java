@@ -3,24 +3,28 @@ package com.example.android.awesomemusicplayer;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class SongsActivity extends AppCompatActivity {
+
+    private final int listNum = 1;
+
+    public int getListNum() {
+        return listNum;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_songs);
-        MainActivity app = new MainActivity();
+        SongListForAll app = new SongListForAll();
 
-        Songs[] array = app.songsArray;
-
-        ArrayList<Songs> songsArrayList = new ArrayList<>(Arrays.asList(array));
+        ArrayList<Songs> songsArrayList = app.getArraySongs();
 
         Collections.sort(songsArrayList, Songs.songNameCompare);
 
@@ -44,8 +48,12 @@ public class SongsActivity extends AppCompatActivity {
                 intent.putExtra("title", title );
                 intent.putExtra("artist", artist);
                 intent.putExtra("genre", genre);
+                intent.putExtra("listNum", getListNum());
+
+
 
                 startActivity(intent);
+                Log.i("position", Integer.toString(position));
             }
 
 

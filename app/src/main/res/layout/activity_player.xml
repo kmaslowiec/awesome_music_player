@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_margin="@dimen/general_margin"
             >
 
             <TextView
@@ -66,28 +67,44 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
-            android:padding="@dimen/padding"
+            android:layout_marginBottom="@dimen/general_margin"
 
             >
+
             <ImageView
+                android:id="@+id/prev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/stop_low"
-                android:paddingRight="@dimen/padding"
-
-
-
+                android:src="@drawable/prev_button64"
+                android:layout_marginEnd="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
                 />
 
             <ImageView
+                android:id="@+id/stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/play_low"
-
-
-
+                android:src="@drawable/stop_button64"
+                android:layout_marginEnd="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
                 />
 
+            <ImageView
+                android:id="@+id/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/play_button64"
+                android:layout_marginEnd="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
+                />
+
+            <ImageView
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/next_button64"
+
+                />
 
         </LinearLayout>
 

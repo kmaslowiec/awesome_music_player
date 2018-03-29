@@ -17,15 +17,13 @@ public class ArtistsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_songs);
-        MainActivity app = new MainActivity();
+        SongListForAll app = new SongListForAll();
 
-        Songs[] array = app.songsArray;
+        ArrayList<Songs> artistsArrayList = app.getArraySongs();
 
-        ArrayList<Songs> songsArrayList = new ArrayList<>(Arrays.asList(array));
+        Collections.sort(artistsArrayList, Songs.artistNameCompare);
 
-        Collections.sort(songsArrayList, Songs.artistNameCompare);
-
-        SongsAdapter adapter = new SongsAdapter(this, songsArrayList, R.layout.list_artists);
+        SongsAdapter adapter = new SongsAdapter(this, artistsArrayList, R.layout.list_artists);
 
         ListView listView = findViewById(R.id.list_songs);
 

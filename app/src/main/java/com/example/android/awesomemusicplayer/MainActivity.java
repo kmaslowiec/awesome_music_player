@@ -6,26 +6,34 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class MainActivity extends AppCompatActivity {
 
-    Songs[] songsArray = {
-            new Songs("Thriller", "Micheal Jackson", "Pop"),
-            new Songs("Bloody roots", "Sepultura", "Heavy Metal"),
-            new Songs("These Are The Days Of Our Lives", "Queen", "Rock"),
-            new Songs("Nie pytaj mnie", "Tomek Lipiński", "Rock"),
-            new Songs("Supergirl", "Anna Naklab feat. Alle Farben & Younotus", "Pop"),
-            new Songs("Enjoy the silence", "Depeche Mode", "Electro Pop"),
-            new Songs("Come with me", "P.Daddy", "Hip-hop"),
-            new Songs("Hurt", "Johnny Cash", "Country"),
-            new Songs("All along the watchtower", "Bob Dylan", "Rock"),
-            new Songs("More Human Than Human", "White Zombie", "Trash Metal")
-    };
+    //ArrayList<Songs> mainSongsArray = new ArrayList<>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*mainSongsArray.add(new Songs("Thriller", "Micheal Jackson", "Pop"));
+        mainSongsArray.add(new Songs("Bloody roots", "Sepultura", "Heavy Metal"));
+        mainSongsArray.add(new Songs("These Are The Days Of Our Lives", "Queen", "Rock"));
+        mainSongsArray.add(new Songs("Nie pytaj mnie", "Tomek Lipiński", "Rock"));
+        mainSongsArray.add(new Songs("Supergirl", "Anna Naklab feat. Alle Farben & Younotus", "Pop"));
+        mainSongsArray.add(new Songs("Enjoy the silence", "Depeche Mode", "Electro Pop"));
+        mainSongsArray.add(new Songs("Come with me", "P.Daddy", "Hip-hop"));
+        mainSongsArray.add(new Songs("Hurt", "Johnny Cash", "Country"));
+        mainSongsArray.add(new Songs("All along the watchtower", "Bob Dylan", "Rock"));
+        mainSongsArray.add(new Songs("More Human Than Human", "White Zombie", "Trash Metal"));*/
 
 
         // SONGS ON CLICK EVENT
