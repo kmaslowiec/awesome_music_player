@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +21,7 @@ public class SongsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_songs);
+
         SongListForAll app = new SongListForAll();
 
         ArrayList<Songs> songsArrayList = app.getArraySongs();
@@ -28,7 +30,7 @@ public class SongsActivity extends AppCompatActivity {
 
         final SongsAdapter adapter = new SongsAdapter(this, songsArrayList, R.layout.list_title);
 
-        ListView listView = findViewById(R.id.list_songs);
+        final ListView listView = findViewById(R.id.list_songs);
 
         listView.setAdapter(adapter);
 
@@ -36,6 +38,7 @@ public class SongsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Songs item = (Songs) adapterView.getItemAtPosition(position);
+                listView.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
 
                 String title = item.getSongName();
                 String artist = item.getArtistName();

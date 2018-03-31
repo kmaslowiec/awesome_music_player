@@ -16,11 +16,16 @@
     <color name="player_background">#03A9F4</color>
 
     <!--600 -->
-    <color name="songs_button">#039BE5</color>
-    <!--500 -->
-    <color name="artists_button">#03A9F4</color>
-    <!--400 -->
-    <color name="genre_button">#29B6F6</color>
+    <color name="button_color">#039BE5</color>
+
+    <!-- grey-->
+    <!--400-->
+    <color name="border_button_clicked_color">#BDBDBD</color>
+    <!--300-->
+    <color name="border_button_color">#E0E0E0</color>
+    <!--50-->
+    <color name="border_player_color">#FAFAFA</color>
+
 
     <color name="font_color">#fff</color>
     <color name="font_color_list">#fff</color>

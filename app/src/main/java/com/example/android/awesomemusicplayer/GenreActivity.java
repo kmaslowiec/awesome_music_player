@@ -32,9 +32,9 @@ public class GenreActivity extends AppCompatActivity {
          * The last parameter sets the layout that is visible under the activity
          */
 
-        SongsAdapter adapter = new SongsAdapter(this, genreArrayList, R.layout.list_genre);
+        final SongsAdapter adapter = new SongsAdapter(this, genreArrayList, R.layout.list_title);
 
-        ListView listView = findViewById(R.id.list_songs);
+        final ListView listView = findViewById(R.id.list_songs);
 
         listView.setAdapter(adapter);
 
@@ -42,6 +42,7 @@ public class GenreActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Songs item = (Songs) adapterView.getItemAtPosition(position);
+                listView.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
 
                 String title = item.getSongName();
                 String artist = item.getArtistName();

@@ -7,6 +7,45 @@
     android:background="@color/background"
     tools:context="com.example.android.awesomemusicplayer.PlayerActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@id/main_frame"
+        >
+
+        <TextView
+            android:id="@+id/button_songs_player"
+            style="@style/CategoryStyle"
+            android:layout_margin="2dp"
+            android:background="@drawable/button_style"
+            android:text="@string/songs"
+            android:textColor="@color/font_color"
+
+            />
+
+        <TextView
+            android:id="@+id/button_artists_player"
+            style="@style/CategoryStyle"
+            android:layout_margin="2dp"
+            android:background="@drawable/button_style"
+            android:text="@string/artists"
+            android:textColor="@color/font_color" />
+
+        <TextView
+            android:id="@+id/button_genre_player"
+            style="@style/CategoryStyle"
+            android:layout_margin="2dp"
+            android:background="@drawable/button_style"
+            android:text="@string/genre"
+            android:textColor="@color/font_color"
+
+            />
+
+
+    </LinearLayout>
+
+
 
     <!-- FRAME FOR THE WHOLE PLAYER -->
 
@@ -18,7 +57,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
-        android:background="@color/player_background"
+        android:background="@drawable/player_style"
+
+
 
         >
 

@@ -11,24 +11,27 @@
     <TextView
         android:id="@+id/button_songs"
         style="@style/CategoryStyle"
+        android:layout_margin="2dp"
+        android:background="@drawable/button_style"
         android:text="@string/songs"
-        android:background="@color/songs_button"
         android:textColor="@color/font_color"
 
-         />
+        />
 
-        <TextView
-            android:id="@+id/button_artists"
-            style="@style/CategoryStyle"
-            android:background="@color/artists_button"
-            android:text="@string/artists"
-            android:textColor="@color/font_color" />
+    <TextView
+        android:id="@+id/button_artists"
+        style="@style/CategoryStyle"
+        android:layout_margin="2dp"
+        android:background="@drawable/button_style"
+        android:text="@string/artists"
+        android:textColor="@color/font_color" />
 
     <TextView
         android:id="@+id/button_genre"
         style="@style/CategoryStyle"
+        android:layout_margin="2dp"
+        android:background="@drawable/button_style"
         android:text="@string/genre"
-        android:background="@color/genre_button"
         android:textColor="@color/font_color"
 
         />

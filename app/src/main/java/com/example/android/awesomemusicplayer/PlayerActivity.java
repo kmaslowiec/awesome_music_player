@@ -1,5 +1,7 @@
 package com.example.android.awesomemusicplayer;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +21,9 @@ public class PlayerActivity extends AppCompatActivity {
     private TextView titleTextView;
     private TextView artistTextView;
     private TextView genreTextView;
+    private TextView songs;
+    private TextView artists;
+    private TextView genre;
     private int pos;
 
     @Override
@@ -66,6 +71,10 @@ public class PlayerActivity extends AppCompatActivity {
 
         prevListener();
         nextListener();
+        songsListener();
+        artistListener();
+        genreListener();
+
 
     }
 
@@ -73,6 +82,8 @@ public class PlayerActivity extends AppCompatActivity {
         titleTextView = findViewById(R.id.player_title);
         artistTextView = findViewById(R.id.player_artist);
         genreTextView = findViewById(R.id.player_genre);
+        songs = findViewById(R.id.button_songs_player);
+        artists = findViewById(R.id.button_artists_player);
     }
 
     public void prevListener() {
@@ -91,13 +102,13 @@ public class PlayerActivity extends AppCompatActivity {
         });
     }
 
-    public void nextListener(){
+    public void nextListener() {
         ImageView prev = findViewById(R.id.next);
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (pos <songsList.size()-1) {
+                if (pos < songsList.size() - 1) {
                     pos++;
                     Songs nextArray = songsList.get(pos);
                     titleTextView.setText(nextArray.getSongName());
@@ -108,6 +119,64 @@ public class PlayerActivity extends AppCompatActivity {
                 Log.i("Position: ", Integer.toString(pos));
             }
 
+        });
+    }
+
+    public void songsListener() {
+
+
+        songs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    songs.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
+                    Thread.sleep(250);
+                    Intent i = new Intent(PlayerActivity.this, SongsActivity.class);
+                    startActivity(i);
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+    }
+
+    public void artistListener() {
+
+        artists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    artists.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
+                    Thread.sleep(250);
+                    Intent i = new Intent(PlayerActivity.this, SongsActivity.class);
+                    startActivity(i);
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+    }
+
+    public void genreListener() {
+        genre = findViewById(R.id.button_genre_player);
+
+        genre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    genre.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
+                    Thread.sleep(250);
+                    Intent i = new Intent(PlayerActivity.this, GenreActivity.class);
+                    startActivity(i);
+                }catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
         });
     }
 }

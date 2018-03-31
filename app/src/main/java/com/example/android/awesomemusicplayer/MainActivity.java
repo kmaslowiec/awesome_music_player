@@ -11,8 +11,11 @@ import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
-    //ArrayList<Songs> mainSongsArray = new ArrayList<>();
 
+
+    //ArrayList<Songs> mainSongsArray = new ArrayList<>();
+    private TextView songs;
+    boolean flagSongButton = true;
 
 
     @Override
@@ -22,29 +25,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        /*mainSongsArray.add(new Songs("Thriller", "Micheal Jackson", "Pop"));
-        mainSongsArray.add(new Songs("Bloody roots", "Sepultura", "Heavy Metal"));
-        mainSongsArray.add(new Songs("These Are The Days Of Our Lives", "Queen", "Rock"));
-        mainSongsArray.add(new Songs("Nie pytaj mnie", "Tomek Lipiński", "Rock"));
-        mainSongsArray.add(new Songs("Supergirl", "Anna Naklab feat. Alle Farben & Younotus", "Pop"));
-        mainSongsArray.add(new Songs("Enjoy the silence", "Depeche Mode", "Electro Pop"));
-        mainSongsArray.add(new Songs("Come with me", "P.Daddy", "Hip-hop"));
-        mainSongsArray.add(new Songs("Hurt", "Johnny Cash", "Country"));
-        mainSongsArray.add(new Songs("All along the watchtower", "Bob Dylan", "Rock"));
-        mainSongsArray.add(new Songs("More Human Than Human", "White Zombie", "Trash Metal"));*/
+        setContentView(R.layout.activity_main);
 
 
         // SONGS ON CLICK EVENT
-        TextView songs = findViewById(R.id.button_songs);
-        songs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, SongsActivity.class);
-                startActivity(i);
-            }
-        });
+
+        songsListener();
 
         // ARTISTS ON CLICK EVENT
         TextView artists = findViewById(R.id.button_artists);
@@ -66,4 +53,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void songsListener(){
+        songs = findViewById(R.id.button_songs);
+
+        songs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    songs.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
+                    Thread.sleep(250);
+                    Intent i = new Intent(MainActivity.this, SongsActivity.class);
+                    startActivity(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
 }
