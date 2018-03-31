@@ -13,6 +13,8 @@ import java.util.Collections;
 
 public class ArtistsActivity extends AppCompatActivity {
 
+    final int listNum = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,12 +46,13 @@ public class ArtistsActivity extends AppCompatActivity {
                 intent.putExtra("title", title );
                 intent.putExtra("artist", artist);
                 intent.putExtra("genre", genre);
+                intent.putExtra("listNum", listNum);
+                intent.putExtra("position", position);
 
                 startActivity(intent);
 
             }
         });
-
-
     }
+
 }

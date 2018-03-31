@@ -12,11 +12,9 @@ import java.util.Collections;
 
 public class SongsActivity extends AppCompatActivity {
 
-    private final int listNum = 1;
+    final int listNum = 0;
 
-    public int getListNum() {
-        return listNum;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +46,14 @@ public class SongsActivity extends AppCompatActivity {
                 intent.putExtra("title", title );
                 intent.putExtra("artist", artist);
                 intent.putExtra("genre", genre);
-                intent.putExtra("listNum", getListNum());
-
-
+                intent.putExtra("listNum", listNum);
+                intent.putExtra("position", position);
 
                 startActivity(intent);
-                Log.i("position", Integer.toString(position));
             }
 
 
         });
-
-
     }
+
 }
