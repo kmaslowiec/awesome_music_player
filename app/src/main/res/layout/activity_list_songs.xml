@@ -7,4 +7,5 @@
     android:id="@+id/list_songs"
     tools:context="com.example.android.awesomemusicplayer.SongsActivity">
 
+
 </ListView>

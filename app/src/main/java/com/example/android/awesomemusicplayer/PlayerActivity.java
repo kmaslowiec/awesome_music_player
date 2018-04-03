@@ -1,6 +1,5 @@
 package com.example.android.awesomemusicplayer;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +23,7 @@ public class PlayerActivity extends AppCompatActivity {
     private TextView songs;
     private TextView artists;
     private TextView genre;
+    private ImageView prev;
     private int pos;
 
     @Override
@@ -34,6 +34,8 @@ public class PlayerActivity extends AppCompatActivity {
         SongListForAll app = new SongListForAll();
         songsList = app.getArraySongs();
         Bundle songDes = getIntent().getExtras();
+
+
 
         initTextViews();
 
@@ -75,6 +77,7 @@ public class PlayerActivity extends AppCompatActivity {
         artistListener();
         genreListener();
 
+        prev.setImageResource(R.drawable.prev_button64);
 
     }
 
@@ -87,19 +90,29 @@ public class PlayerActivity extends AppCompatActivity {
     }
 
     public void prevListener() {
-        ImageView prev = findViewById(R.id.prev);
+        prev = findViewById(R.id.prev);
+
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (pos > 0) {
+
+                    prev.setImageResource(R.drawable.prev_clicked);
+
                     pos--;
                     Songs prevArray = songsList.get(pos);
                     titleTextView.setText(prevArray.getSongName());
                     artistTextView.setText(prevArray.getArtistName());
                     genreTextView.setText(prevArray.getGenre());
                 }
+
             }
         });
+
+
+
+
+
     }
 
     public void nextListener() {
@@ -151,7 +164,7 @@ public class PlayerActivity extends AppCompatActivity {
                 try {
                     artists.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
                     Thread.sleep(250);
-                    Intent i = new Intent(PlayerActivity.this, SongsActivity.class);
+                    Intent i = new Intent(PlayerActivity.this, ArtistsActivity.class);
                     startActivity(i);
                 }catch (InterruptedException e) {
                     e.printStackTrace();
