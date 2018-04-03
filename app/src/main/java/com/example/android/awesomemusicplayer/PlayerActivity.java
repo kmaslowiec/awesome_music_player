@@ -3,7 +3,7 @@ package com.example.android.awesomemusicplayer;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +16,6 @@ public class PlayerActivity extends AppCompatActivity {
     private ArrayList<Songs> songsList;
     private int position;
     private int playerListNum;
-
     private TextView titleTextView;
     private TextView artistTextView;
     private TextView genreTextView;
@@ -24,6 +23,7 @@ public class PlayerActivity extends AppCompatActivity {
     private TextView artists;
     private TextView genre;
     private ImageView prev;
+    private ImageView next;
     private int pos;
 
     @Override
@@ -35,9 +35,9 @@ public class PlayerActivity extends AppCompatActivity {
         songsList = app.getArraySongs();
         Bundle songDes = getIntent().getExtras();
 
-
-
         initTextViews();
+
+        prev = findViewById(R.id.prev);
 
         if (songDes != null) {
             position = songDes.getInt("position");
@@ -77,8 +77,6 @@ public class PlayerActivity extends AppCompatActivity {
         artistListener();
         genreListener();
 
-        prev.setImageResource(R.drawable.prev_button64);
-
     }
 
     public void initTextViews() {
@@ -92,47 +90,79 @@ public class PlayerActivity extends AppCompatActivity {
     public void prevListener() {
         prev = findViewById(R.id.prev);
 
-        prev.setOnClickListener(new View.OnClickListener() {
+        prev.setOnTouchListener(new View.OnTouchListener() {
+
+
             @Override
-            public void onClick(View view) {
-                if (pos > 0) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
 
-                    prev.setImageResource(R.drawable.prev_clicked);
+                switch (motionEvent.getAction()) {
 
-                    pos--;
-                    Songs prevArray = songsList.get(pos);
-                    titleTextView.setText(prevArray.getSongName());
-                    artistTextView.setText(prevArray.getArtistName());
-                    genreTextView.setText(prevArray.getGenre());
+
+                    case MotionEvent.ACTION_DOWN:
+
+                        prev.setImageResource(R.drawable.prev_clicked);
+
+                        if (pos > 0) {
+
+
+                            pos--;
+                            Songs prevArray = songsList.get(pos);
+                            titleTextView.setText(prevArray.getSongName());
+                            artistTextView.setText(prevArray.getArtistName());
+                            genreTextView.setText(prevArray.getGenre());
+                        }
+
+                        return true;
+
+                    case MotionEvent.ACTION_UP:
+                        prev.setImageResource(R.drawable.prev_button64);
+                        return true;
                 }
-
+                return false;
             }
+
+
         });
-
-
-
-
 
     }
 
     public void nextListener() {
-        ImageView prev = findViewById(R.id.next);
-        prev.setOnClickListener(new View.OnClickListener() {
+        next = findViewById(R.id.next);
+
+        next.setOnTouchListener(new View.OnTouchListener() {
+
+
             @Override
-            public void onClick(View view) {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
 
-                if (pos < songsList.size() - 1) {
-                    pos++;
-                    Songs nextArray = songsList.get(pos);
-                    titleTextView.setText(nextArray.getSongName());
-                    artistTextView.setText(nextArray.getArtistName());
-                    genreTextView.setText(nextArray.getGenre());
+                switch (motionEvent.getAction()) {
+
+
+                    case MotionEvent.ACTION_DOWN:
+
+                        next.setImageResource(R.drawable.next_clicked);
+
+                        if (pos < songsList.size() - 1) {
+                            pos++;
+                            Songs nextArray = songsList.get(pos);
+                            titleTextView.setText(nextArray.getSongName());
+                            artistTextView.setText(nextArray.getArtistName());
+                            genreTextView.setText(nextArray.getGenre());
+                        }
+
+                        return true;
+
+                    case MotionEvent.ACTION_UP:
+                        next.setImageResource(R.drawable.next_button64);
+                        return true;
                 }
-
-                Log.i("Position: ", Integer.toString(pos));
+                return false;
             }
 
+
         });
+
     }
 
     public void songsListener() {
@@ -147,7 +177,7 @@ public class PlayerActivity extends AppCompatActivity {
                     Thread.sleep(250);
                     Intent i = new Intent(PlayerActivity.this, SongsActivity.class);
                     startActivity(i);
-                }catch (InterruptedException e) {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
@@ -166,7 +196,7 @@ public class PlayerActivity extends AppCompatActivity {
                     Thread.sleep(250);
                     Intent i = new Intent(PlayerActivity.this, ArtistsActivity.class);
                     startActivity(i);
-                }catch (InterruptedException e) {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
@@ -185,7 +215,7 @@ public class PlayerActivity extends AppCompatActivity {
                     Thread.sleep(250);
                     Intent i = new Intent(PlayerActivity.this, GenreActivity.class);
                     startActivity(i);
-                }catch (InterruptedException e) {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 

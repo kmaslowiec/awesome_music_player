@@ -3,17 +3,18 @@ package com.example.android.awesomemusicplayer;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class SongsActivity extends AppCompatActivity {
 
     final int listNum = 0;
+    private boolean toast = false;
 
 
 
@@ -21,6 +22,16 @@ public class SongsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_songs);
+        Bundle intentToast = getIntent().getExtras();
+
+        if (intentToast != null) {
+            toast = intentToast.getBoolean("toast");
+        }
+
+         if(toast){
+             Toast.makeText(this, "Titles in alphabetical order", Toast.LENGTH_SHORT).show();
+             toast=false;
+         }
 
         SongListForAll app = new SongListForAll();
 
@@ -51,6 +62,7 @@ public class SongsActivity extends AppCompatActivity {
                 intent.putExtra("genre", genre);
                 intent.putExtra("listNum", listNum);
                 intent.putExtra("position", position);
+
 
                 startActivity(intent);
             }

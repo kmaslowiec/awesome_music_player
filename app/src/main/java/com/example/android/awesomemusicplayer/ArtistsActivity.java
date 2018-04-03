@@ -6,20 +6,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class ArtistsActivity extends AppCompatActivity {
 
     final int listNum = 1;
+    private boolean toast = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_songs);
         SongListForAll app = new SongListForAll();
+        Bundle intentToast = getIntent().getExtras();
+
+        if (intentToast != null) {
+            toast = intentToast.getBoolean("toast");
+        }
+
+        if(toast){
+            Toast.makeText(this, "Artists in alphabetical order", Toast.LENGTH_SHORT).show();
+            toast=false;
+        }
 
         ArrayList<Songs> artistsArrayList = app.getArraySongs();
 
@@ -38,7 +49,6 @@ public class ArtistsActivity extends AppCompatActivity {
                 Songs item = (Songs) adapterView.getItemAtPosition(position);
                 listView.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
 
-
                 String title = item.getSongName();
                 String artist = item.getArtistName();
                 String genre = item.getGenre();
@@ -50,7 +60,6 @@ public class ArtistsActivity extends AppCompatActivity {
                 intent.putExtra("genre", genre);
                 intent.putExtra("listNum", listNum);
                 intent.putExtra("position", position);
-
                 startActivity(intent);
 
             }

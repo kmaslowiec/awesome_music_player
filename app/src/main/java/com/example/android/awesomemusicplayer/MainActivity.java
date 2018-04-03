@@ -6,65 +6,81 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class MainActivity extends AppCompatActivity {
 
 
-
-    //ArrayList<Songs> mainSongsArray = new ArrayList<>();
-    private TextView songs;
-    boolean flagSongButton = true;
-
+    private TextView titles;
+    private TextView artists;
+    private TextView genre;
+    private boolean toast = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
-
         // SONGS ON CLICK EVENT
-
-        songsListener();
-
-        // ARTISTS ON CLICK EVENT
-        TextView artists = findViewById(R.id.button_artists);
-        artists.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, ArtistsActivity.class);
-                startActivity(i);
-            }
-        });
+        titlesListener();
 
         // ARTISTS ON CLICK EVENT
-        TextView genre = findViewById(R.id.button_genre);
-        genre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, GenreActivity.class);
-                startActivity(i);
-            }
-        });
+        artistListener();
+
+        // ARTISTS ON CLICK EVENT
+        genreListener();
+
     }
 
-    public void songsListener(){
-        songs = findViewById(R.id.button_songs);
+    public void titlesListener(){
+        titles = findViewById(R.id.button_songs);
 
-        songs.setOnClickListener(new View.OnClickListener() {
+        titles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 try {
-                    songs.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
+                    titles.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
                     Thread.sleep(250);
                     Intent i = new Intent(MainActivity.this, SongsActivity.class);
+                    i.putExtra("toast", toast);
+                    startActivity(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void artistListener(){
+        artists = findViewById(R.id.button_artists);
+        artists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    artists.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
+                    Thread.sleep(250);
+                    Intent i = new Intent(MainActivity.this, ArtistsActivity.class);
+                    i.putExtra("toast", toast);
+                    startActivity(i);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void genreListener(){
+        genre = findViewById(R.id.button_genre);
+        genre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try {
+                    genre.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
+                    Thread.sleep(250);
+                    Intent i = new Intent(MainActivity.this, GenreActivity.class);
+                    i.putExtra("toast", toast);
                     startActivity(i);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
