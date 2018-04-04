@@ -8,11 +8,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private TextView titles;
     private TextView artists;
     private TextView genre;
-    private boolean toast = true;
+    private boolean toast = true; // sends info to category activities to enable printing the toast
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void titlesListener(){
+    /**
+     * setups onClick listener for TextView with id button_songs in activity_main.xml
+     */
+    public void titlesListener() {
         titles = findViewById(R.id.button_songs);
 
         titles.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void artistListener(){
+    /**
+     * setups onClick listener for TextView with id button_artists in activity_main.xml
+     */
+    public void artistListener() {
         artists = findViewById(R.id.button_artists);
         artists.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void genreListener(){
+    /**
+     * setups onClick listener for TextView with id button_genre in activity_main.xml
+     */
+    public void genreListener() {
         genre = findViewById(R.id.button_genre);
         genre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,5 +96,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }

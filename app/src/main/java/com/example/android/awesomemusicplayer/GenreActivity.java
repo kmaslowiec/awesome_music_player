@@ -11,10 +11,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Class for Genre category
+ */
 public class GenreActivity extends AppCompatActivity {
 
-    final int listNum = 2;
-    private boolean toast = false;
+    final int listNum = 2; // number of the list. Put the list in correct order
+    private boolean toast = false; // enables or disables the Toast
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +25,13 @@ public class GenreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_songs);
         Bundle intentToast = getIntent().getExtras();
 
-        if (intentToast != null) {
+        if (intentToast != null) { // gets boolean from MainActivity
             toast = intentToast.getBoolean("toast");
         }
 
-        if(toast){
+        if (toast) { // prints Toast if needed
             Toast.makeText(this, "Genre in alphabetical order", Toast.LENGTH_SHORT).show();
-            toast=false;
+            toast = false;
         }
 
         SongListForAll app = new SongListForAll();
@@ -40,10 +43,11 @@ public class GenreActivity extends AppCompatActivity {
         Collections.sort(genreArrayList, Songs.genreCompare);
 
         /**
-         * The last parameter sets the layout that is visible under the activity
+         * The last in adapter parameter sets the layout that is visible under the activity to make it in specific order.
+         * Alphabetical order based on titles, artists or genre
          */
 
-        final SongsAdapter adapter = new SongsAdapter(this, genreArrayList, R.layout.list_title);
+        final SongsAdapter adapter = new SongsAdapter(this, genreArrayList, R.layout.list_genre);
 
         final ListView listView = findViewById(R.id.list_songs);
 
@@ -61,7 +65,7 @@ public class GenreActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(GenreActivity.this, PlayerActivity.class);
 
-                intent.putExtra("title", title );
+                intent.putExtra("title", title);
                 intent.putExtra("artist", artist);
                 intent.putExtra("genre", genre);
                 intent.putExtra("listNum", listNum);
@@ -69,8 +73,6 @@ public class GenreActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
 
     }
 }

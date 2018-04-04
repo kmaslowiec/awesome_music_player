@@ -7,14 +7,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Class for Titles category
+ */
 public class SongsActivity extends AppCompatActivity {
 
-    final int listNum = 0;
-    private boolean toast = false;
+    final int listNum = 0; // number of the list. Put the list in correct order
+    private boolean toast = false; // enables or disables the Toast
 
 
 
@@ -25,19 +27,24 @@ public class SongsActivity extends AppCompatActivity {
         Bundle intentToast = getIntent().getExtras();
 
         if (intentToast != null) {
-            toast = intentToast.getBoolean("toast");
+            toast = intentToast.getBoolean("toast"); // gets boolean from MainActivity
         }
 
-         if(toast){
+         if(toast){ // prints Toast if needed
              Toast.makeText(this, "Titles in alphabetical order", Toast.LENGTH_SHORT).show();
              toast=false;
          }
 
-        SongListForAll app = new SongListForAll();
+        SongListForAll app = new SongListForAll(); // creates object with the ArrayList that includes the songs
 
-        ArrayList<Songs> songsArrayList = app.getArraySongs();
+        ArrayList<Songs> songsArrayList = app.getArraySongs(); // ArrayList with the songs
 
         Collections.sort(songsArrayList, Songs.songNameCompare);
+
+        /**
+         * The last in adapter parameter sets the layout that is visible under the activity to make it in specific order.
+         * Alphabetical order based on titles, artists or genre
+         */
 
         final SongsAdapter adapter = new SongsAdapter(this, songsArrayList, R.layout.list_title);
 

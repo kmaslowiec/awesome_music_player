@@ -15,10 +15,7 @@ import java.util.ArrayList;
 /**
  * At this moment I have no idea what it does :)
  */
-
 public class SongsAdapter extends ArrayAdapter<Songs> {
-
-    private static final String LOG_TAG = SongsAdapter.class.getSimpleName();
 
     private int listNum;
 
@@ -26,27 +23,18 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
         return listNum;
     }
 
-
-
     /**
      * This is our own custom constructor (it doesn't mirror a superclass constructor).
      * The context is used to inflate the layout file, and the list is the data we want
      * to populate into the lists.
      *
-     * @param context        The current context. Used to inflate the layout file.
-     * @param songs A List of AndroidFlavor objects to display in a list
+     * @param context The current context. Used to inflate the layout file.
+     * @param songs   A List of AndroidFlavor objects to display in a list
      */
-
     public SongsAdapter(@NonNull Context context, @NonNull ArrayList<Songs> songs, int listNum) {
-
-
         super(context, 0, songs);
         this.listNum = listNum;
-
     }
-
-
-
 
 
     @NonNull
@@ -55,7 +43,7 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
 // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
 
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     getListNum(), parent, false);
         }
@@ -63,22 +51,20 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
         // Get the {@link Songs} object located at this position in the list
         Songs songs = getItem(position);
 
-        // Find the TextView in the list_title.xmll layout with the ID version_name
+        // Find the TextView in the list_title.xml layout with the ID version_name
         TextView songTextView = listItemView.findViewById(R.id.song_word);
         // set this text on the name TextView
-
 
 
         songTextView.setText(songs.getSongName());
 
 
-
-        // Find the TextView in the list_title.xmll layout with the ID version_number
+        // Find the TextView in the list_title.xml layout with the ID version_number
         TextView artistTextView = listItemView.findViewById(R.id.artist_word);
         // set this text on the number TextView
         artistTextView.setText(songs.getArtistName());
 
-        // Find the TextView in the list_title.xmll layout with the ID version_number
+        // Find the TextView in the list_title.xml layout with the ID version_number
         TextView genreTextView = listItemView.findViewById(R.id.genre_word);
         // set this text on the number TextView
         genreTextView.setText(songs.getGenre());

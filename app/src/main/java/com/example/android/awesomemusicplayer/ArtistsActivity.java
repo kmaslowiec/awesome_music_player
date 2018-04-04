@@ -7,14 +7,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Class for Artists category
+ */
 public class ArtistsActivity extends AppCompatActivity {
 
-    final int listNum = 1;
-    private boolean toast = false;
+    final int listNum = 1; // number of the list. Put the list in correct order
+    private boolean toast = false; // enables or disables the Toast
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +26,10 @@ public class ArtistsActivity extends AppCompatActivity {
         Bundle intentToast = getIntent().getExtras();
 
         if (intentToast != null) {
-            toast = intentToast.getBoolean("toast");
+            toast = intentToast.getBoolean("toast"); // gets boolean from MainActivity
         }
 
-        if(toast){
+        if(toast){ // prints Toast if needed
             Toast.makeText(this, "Artists in alphabetical order", Toast.LENGTH_SHORT).show();
             toast=false;
         }
@@ -36,7 +38,12 @@ public class ArtistsActivity extends AppCompatActivity {
 
         Collections.sort(artistsArrayList, Songs.artistNameCompare);
 
-        final SongsAdapter adapter = new SongsAdapter(this, artistsArrayList, R.layout.list_title);
+        /**
+         * The last in adapter parameter sets the layout that is visible under the activity to make it in specific order.
+         * Alphabetical order based on titles, artists or genre
+         */
+
+        final SongsAdapter adapter = new SongsAdapter(this, artistsArrayList, R.layout.list_artists);
 
         final ListView listView = findViewById(R.id.list_songs);
 
@@ -65,5 +72,4 @@ public class ArtistsActivity extends AppCompatActivity {
             }
         });
     }
-
 }

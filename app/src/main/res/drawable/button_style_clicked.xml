@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- Setups the style for clicked buttons in the app. For categories such as: titles, artists and genre -->
+
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle"
-    >
-
-    <solid android:color="@color/background"/>
-
-    <corners
-        android:radius="3dp"
-         />
+    android:shape="rectangle">
+    <solid android:color="@color/background" />
+    <corners android:radius="3dp" />
     <stroke
         android:width="1dp"
         android:color="@color/border_button_clicked_color" />

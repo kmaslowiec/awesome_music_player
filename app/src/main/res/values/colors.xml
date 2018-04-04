@@ -2,7 +2,6 @@
 <resources>
 
     <!--light blue -->
-
     <!--500 -->
     <color name="colorPrimary">#03A9F4</color>
     <!--500 -->
@@ -29,5 +28,4 @@
 
     <color name="font_color">#fff</color>
     <color name="font_color_list">#fff</color>
-
 </resources>

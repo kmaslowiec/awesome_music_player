@@ -7,16 +7,13 @@
     android:orientation="vertical"
     tools:context="com.example.android.awesomemusicplayer.MainActivity">
 
-
     <TextView
         android:id="@+id/button_songs"
         style="@style/CategoryStyle"
         android:layout_margin="2dp"
         android:background="@drawable/button_style"
         android:text="@string/songs"
-        android:textColor="@color/font_color"
-
-        />
+        android:textColor="@color/font_color" />
 
     <TextView
         android:id="@+id/button_artists"
@@ -32,8 +29,5 @@
         android:layout_margin="2dp"
         android:background="@drawable/button_style"
         android:text="@string/genre"
-        android:textColor="@color/font_color"
-
-        />
-
+        android:textColor="@color/font_color" />
 </LinearLayout>

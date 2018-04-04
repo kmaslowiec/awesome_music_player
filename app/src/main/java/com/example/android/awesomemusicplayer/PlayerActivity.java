@@ -7,10 +7,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Class for player action
+ */
 public class PlayerActivity extends AppCompatActivity {
 
     private ArrayList<Songs> songsList;
@@ -43,7 +45,7 @@ public class PlayerActivity extends AppCompatActivity {
             position = songDes.getInt("position");
         }
 
-        pos = position;
+        pos = position; // setups position to instance variable
 
         if (songDes != null) {
             playerListNum = songDes.getInt("listNum");
@@ -79,6 +81,9 @@ public class PlayerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * initiate the TextViews for the player
+     */
     public void initTextViews() {
         titleTextView = findViewById(R.id.player_title);
         artistTextView = findViewById(R.id.player_artist);
@@ -87,6 +92,9 @@ public class PlayerActivity extends AppCompatActivity {
         artists = findViewById(R.id.button_artists_player);
     }
 
+    /**
+     * logic for ImageView prev. Implements onTouch that change the image once it is clicked
+     */
     public void prevListener() {
         prev = findViewById(R.id.prev);
 
@@ -104,7 +112,6 @@ public class PlayerActivity extends AppCompatActivity {
                         prev.setImageResource(R.drawable.prev_clicked);
 
                         if (pos > 0) {
-
 
                             pos--;
                             Songs prevArray = songsList.get(pos);
@@ -127,6 +134,9 @@ public class PlayerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * logic for ImageView next. Implements onTouch that change the image once it is clicked
+     */
     public void nextListener() {
         next = findViewById(R.id.next);
 
@@ -137,7 +147,6 @@ public class PlayerActivity extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
 
                 switch (motionEvent.getAction()) {
-
 
                     case MotionEvent.ACTION_DOWN:
 
@@ -165,13 +174,14 @@ public class PlayerActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * setups onClick listener for TextView with id player_title in activity_main.xml
+     */
     public void songsListener() {
-
 
         songs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 try {
                     songs.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_style_clicked));
                     Thread.sleep(250);
@@ -180,12 +190,13 @@ public class PlayerActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
-
             }
         });
     }
 
+    /**
+     * setups onClick listener for TextView with id player_artist in activity_main.xml
+     */
     public void artistListener() {
 
         artists.setOnClickListener(new View.OnClickListener() {
@@ -199,11 +210,13 @@ public class PlayerActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
             }
         });
     }
 
+    /**
+     * setups onClick listener for TextView with id player_genre in activity_main.xml
+     */
     public void genreListener() {
         genre = findViewById(R.id.button_genre_player);
 
@@ -218,7 +231,6 @@ public class PlayerActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
             }
         });
     }

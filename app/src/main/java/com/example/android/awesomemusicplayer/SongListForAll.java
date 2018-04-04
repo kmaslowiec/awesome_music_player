@@ -3,15 +3,13 @@ package com.example.android.awesomemusicplayer;
 import java.util.ArrayList;
 
 /**
- * This is data base of the Songs Objects
+ * This is data base for Songs Objects
  */
-
 public class SongListForAll {
 
     private ArrayList<Songs> array = new ArrayList<>();
 
     public ArrayList<Songs> getArraySongs() {
-
 
         array.add(new Songs("Thriller", "Micheal Jackson", "Pop"));
         array.add(new Songs("Bloody roots", "Sepultura", "Heavy Metal"));

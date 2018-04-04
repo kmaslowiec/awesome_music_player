@@ -2,7 +2,6 @@
 <resources>
 
     <dimen name="button_height">100dp</dimen>
-
     <dimen name="button_text_size">45sp</dimen>
 
     <!-- Height of each list item -->

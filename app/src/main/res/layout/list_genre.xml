@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- puts the TextViews in Songs adapter in a correct order. Genre on the top, Artists in the middle
+, Title on the bottom -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/padding"
     android:background="@color/background"
-    >
+    android:orientation="vertical"
+    android:padding="@dimen/padding">
 
     <TextView
         android:id="@+id/genre_word"
-        tools:text="@string/genre"
         style="@style/FontList"
-        />
+        tools:text="@string/genre" />
 
     <TextView
         android:id="@+id/artist_word"
-        tools:text="@string/artists"
         style="@style/FontList"
-        />
+        tools:text="@string/artists" />
 
     <TextView
         android:id="@+id/song_word"
-        tools:text="@string/songs"
         style="@style/FontList"
-        />
-
-
-
-
+        tools:text="@string/songs" />
 </LinearLayout>
